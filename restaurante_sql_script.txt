@@ -1,0 +1,97 @@
+create database restaurante;
+use restaurante;
+
+#setor
+create table setor(
+id int not null,
+descricao varchar(20),
+primary key(id));
+
+#pessoa
+create table pessoa(
+id int not null, 
+nome varchar(50),
+cpf varchar(15),
+dt_nasc date,
+primary key(id));
+
+#gerente
+create table gerente(
+id int not null,
+nome varchar(50),
+cpf varchar(15),
+dt_nasc date,
+salario decimal(9,3),
+setor int,
+primary key(id),
+foreign key (setor) references setor(id));
+
+#funcionario
+create table funcionario(
+id int not null,
+nome varchar(50),
+cpf varchar(15),
+dt_nasc date,
+salario decimal(9,3),
+setor int,
+funcao varchar(20),
+primary key(id),
+foreign key (setor) references setor(id));
+
+#usuario
+create table usuario(
+apelido varchar(20) not null,
+nivelAcesso int not null,
+senha varchar(8) not null,
+primary key(apelido));
+
+#categoria
+create table categoria(
+id int not null, 
+descricao varchar(20),
+primary key(id));
+
+#prato
+create table prato(
+cod int not null,
+nome varchar(20),
+ingredientes varchar(200),
+descricao varchar(50),
+preco decimal(5,3),
+tamanho varchar(3),
+categoria int,
+primary key(cod),
+foreign key(categoria) references categoria(id));
+
+#pedido
+create table pedido(
+numero int not null,
+prato int,
+atendente int, 
+num_mesa int,
+valorTotal decimal(9,3),
+pago boolean,
+status varchar(20),
+primary key(numero),
+foreign key(prato) references prato(cod),
+foreign key(atendente) references funcionario(id));
+
+#cartao_fidelidade
+create table cartao_fidelidade(
+numero int not null,
+quant_compras int,
+dt_cadastro date,
+ativo boolean,
+cliente_titular int,
+primary key(numero),
+foreign key(cliente_titular) references pessoa(id));
+
+#pratos_pedidos
+create table pratos_pedidos(
+numero_pedido int, 
+cod_prato int,
+quant int,
+cartao_fid boolean,
+num_cart int,
+constraint numero primary key(numero_pedido, cod_prato),
+foreign key (num_cart) references cartao_fidelidade(numero));
