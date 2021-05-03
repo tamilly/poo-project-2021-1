@@ -36,15 +36,15 @@ public class Menu { // CLASSE EM CONSTRUÇÃO
         return usuarios;
     }
     
-    public Usuario cadastrarUsuario() {
+    /*public Usuario cadastrarUsuario() { ->INSERT
         System.out.println("Criar apelido: ");
         String a = new Scanner(System.in).nextLine();
         System.out.println("Senha: ");
         String s = new Scanner(System.in).nextLine();
         System.out.println("Nível de acesso (1.Administrador/2.Funcionário): ");
         int n = new Scanner(System.in).nextInt();
-        return new Usuario(a, n, s);
-    }
+        //return new Usuario(a, n, s);
+    }*/
 
     public void menuFuncionario(){
         //Funcionário pode: adicionar pedido, alterar pedidos que não estejam com status "completo",
