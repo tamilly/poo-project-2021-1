@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import restaurante.DAO.UsuarioDAO;
 import restaurante.DAO.teste;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
@@ -67,7 +68,8 @@ public class Restaurante {
             System.out.println("nivel: ");
             System.out.println(us.get(i).getNivelAcesso());
         }
-        t.Insert(new Usuario());
+        UsuarioDAO u = new UsuarioDAO();
+        u.Insert();
         
     }
     

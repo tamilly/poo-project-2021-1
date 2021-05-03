@@ -34,7 +34,7 @@ public class teste {
         }catch(SQLException ex){
             System.out.println(ex);
         }finally{
-            //Conexao.closeConnection(con, stmt);
+            Conexao.getConnection().close();
         }
         
     }
