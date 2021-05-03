@@ -9,7 +9,11 @@
  */
 package restaurante;
 
+import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
+import restaurante.DAO.teste;
 //import java.text.SimpleDateFormat;
 //import java.util.Date;
 
@@ -21,7 +25,7 @@ public class Restaurante {
 
     // EM CONSTRUÇÃO
    
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, SQLException, ClassNotFoundException {
         // MENU PRINCIPAL AQUI
         
         /* ESTE É APENAS UM TESTE INICIAL
@@ -52,6 +56,19 @@ public class Restaurante {
         System.out.println(g.getSalario());
         
         */
+        List<Usuario> us = new ArrayList<>();
+        teste t = new teste();
+        us = t.Select();
+        for(int i=0; i<us.size(); i++){
+            System.out.println("apelido: ");
+            System.out.println(us.get(i).getApelido());
+            System.out.println("senha: ");
+            System.out.println(us.get(i).getSenha());
+            System.out.println("nivel: ");
+            System.out.println(us.get(i).getNivelAcesso());
+        }
+        t.Insert(new Usuario());
+        
     }
     
 }

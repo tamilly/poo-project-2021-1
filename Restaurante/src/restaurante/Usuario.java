@@ -15,14 +15,14 @@ package restaurante;
  */
 public class Usuario {
     
-    private final String apelido;
+    private String apelido;
     private int nivelAcesso;
     private String senha;
 
-    public Usuario(String apelido, int nivelAcesso, String senha) {
-        this.apelido = apelido;
-        this.nivelAcesso = nivelAcesso;
-        this.senha = senha;
+    public Usuario() {
+        this.apelido = "";
+        this.nivelAcesso = 0;
+        this.senha = "";
     }
 
     public String getApelido() {
