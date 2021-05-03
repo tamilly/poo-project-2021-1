@@ -59,7 +59,8 @@ public class Restaurante {
         */
         List<Usuario> us = new ArrayList<>();
         teste t = new teste();
-        us = t.Select();
+        UsuarioDAO u = new UsuarioDAO();
+        us = u.Select();
         for(int i=0; i<us.size(); i++){
             System.out.println("apelido: ");
             System.out.println(us.get(i).getApelido());
@@ -68,8 +69,8 @@ public class Restaurante {
             System.out.println("nivel: ");
             System.out.println(us.get(i).getNivelAcesso());
         }
-        UsuarioDAO u = new UsuarioDAO();
-        u.Insert();
+        
+        //u.Insert();
         
     }
     

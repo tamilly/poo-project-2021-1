@@ -29,6 +29,10 @@ public class Usuario {
         return apelido;
     }
 
+    public void setApelido(String apelido){
+        this.apelido = apelido;
+    }
+    
     public int getNivelAcesso() {
         return nivelAcesso;
     }
